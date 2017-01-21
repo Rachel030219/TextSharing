@@ -2,7 +2,7 @@
 <resources>
     <style name="AppTheme" parent="@android:style/Theme.Light">
 	</style>
-	<style name="AppTheme.Translucent" parent="android:Theme.Light.NoTitleBar.Fullscreen">
+	<style name="AppTheme.Translucent" parent="android:Theme.Light.NoTitleBar">
 		<item name="android:windowBackground">@color/translucent</item>
 		<item name="android:windowIsTranslucent">true</item>
 	</style>

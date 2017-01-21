@@ -1,6 +1,7 @@
 package net.rachel030219.textsharing;
 
 import android.app.*;
+import android.content.Context;
 import android.graphics.*;
 import android.os.*;
 import android.view.*;
@@ -15,7 +16,7 @@ public class SendActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		
 		mWindowManager = (WindowManager) getApplicationContext()
-			.getSystemService("window");
+			.getSystemService(Context.WINDOW_SERVICE);
         mLayout = new WindowManager.LayoutParams();
         mLayout.type = WindowManager.LayoutParams.TYPE_PHONE;
 
@@ -32,7 +33,6 @@ public class SendActivity extends Activity{
         // 设置窗体宽度和高度
         mLayout.width = WindowManager.LayoutParams.MATCH_PARENT;
         mLayout.height = WindowManager.LayoutParams.WRAP_CONTENT;
-		mWindowManager.addView(window = new SendWindow(getApplicationContext(),mWindowManager),mLayout);
-		finish();
+		mWindowManager.addView(window = new SendWindow(this,mWindowManager),mLayout);
 	}
 }

@@ -50,5 +50,6 @@ public class SendWindow extends LinearLayout{
 	public void destroySelf(){
 		removeAllViews();
 		manager.removeView(this);
+        ((SendActivity)context).finish();
 	}
 }
