@@ -14,9 +14,9 @@ public class SendActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		
-		mWindowManager = (WindowManager) getApplicationContext()
-			.getSystemService(Context.WINDOW_SERVICE);
+
+        mWindowManager = (WindowManager) getApplicationContext()
+                .getSystemService(Context.WINDOW_SERVICE);
         mLayout = new WindowManager.LayoutParams();
         mLayout.type = WindowManager.LayoutParams.TYPE_PHONE;
 
@@ -33,6 +33,6 @@ public class SendActivity extends Activity{
         // 设置窗体宽度和高度
         mLayout.width = WindowManager.LayoutParams.MATCH_PARENT;
         mLayout.height = WindowManager.LayoutParams.WRAP_CONTENT;
-		mWindowManager.addView(window = new SendWindow(this,mWindowManager),mLayout);
+        mWindowManager.addView(window = new SendWindow(this,mWindowManager),mLayout);
 	}
 }
