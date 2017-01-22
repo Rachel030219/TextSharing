@@ -14,7 +14,6 @@ public class SendWindow extends LinearLayout{
 		this.manager = manager;
         setOrientation(LinearLayout.VERTICAL);// 水平排列
 
-
         //设置宽高
         this.setLayoutParams( new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
 
@@ -50,6 +49,5 @@ public class SendWindow extends LinearLayout{
 	public void destroySelf(){
 		removeAllViews();
 		manager.removeView(this);
-        ((SendActivity)context).finish();
 	}
 }

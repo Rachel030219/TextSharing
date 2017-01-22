@@ -7,4 +7,7 @@
 		<item name="android:windowBackground">@color/translucent</item>
 		<item name="android:windowIsTranslucent">true</item>
 	</style>
+	<style name="AppTheme.Widget.Button" parent="android:Widget.Material.Light.Button">
+		<item name="android:textColor">#EEEEEE</item>
+	</style>
 </resources>
