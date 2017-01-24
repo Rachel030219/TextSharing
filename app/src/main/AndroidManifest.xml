@@ -21,9 +21,6 @@
             </intent-filter>
         </activity>
 		
-		<activity
-			android:name=".SendActivity"/>
-		
 		<service
 			android:name=".SendService"/>
 		

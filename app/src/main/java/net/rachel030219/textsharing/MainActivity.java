@@ -1,15 +1,14 @@
 package net.rachel030219.textsharing;
 
-import android.app.*;
-import android.content.*;
-import android.os.*;
-import android.widget.*;
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.widget.Toast;
 
-public class MainActivity extends Activity 
-{
+public class MainActivity extends Activity {
+    public static final int REQUEST_CODE = 0;
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 		startService(new Intent(this,SendService.class));

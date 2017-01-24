@@ -17,7 +17,7 @@
 			android:id="@+id/sendwindow_back"
 			android:layout_width="48dp"
 			android:layout_height="48dp"
-			android:text="←"
+			android:text="<"
 			android:gravity="center"
             style="@style/AppTheme.Widget.Button"/>
 		

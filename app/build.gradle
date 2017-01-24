@@ -7,9 +7,9 @@ android {
     defaultConfig {
         applicationId "net.rachel030219.textsharing"
         minSdkVersion 11
-        targetSdkVersion 21
+        targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0 STABLE"
     }
     buildTypes {
         release {

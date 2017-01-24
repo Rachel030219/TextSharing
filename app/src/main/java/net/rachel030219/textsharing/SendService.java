@@ -1,12 +1,20 @@
 package net.rachel030219.textsharing;
 
-import android.app.*;
-import android.content.*;
-import android.graphics.PixelFormat;
-import android.os.*;
+import android.Manifest;
+import android.net.Uri;
+import android.os.Build;
+import android.os.IBinder;
+import android.app.Service;
+import android.app.PendingIntent;
+import android.app.Notification;
+import android.provider.Settings;
 import android.view.Gravity;
 import android.view.WindowManager;
-import android.widget.*;
+import android.content.Intent;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.graphics.PixelFormat;
+import android.widget.Toast;
 
 public class SendService extends Service
 {
@@ -41,28 +49,29 @@ public class SendService extends Service
         if (intent != null && intent.hasExtra("request")) {
             switch (intent.getIntExtra("request", 0)) {
                 case REQUEST_WINDOW:
-                    WindowManager mWindowManager;
-                    WindowManager.LayoutParams mLayout;
-                    mWindowManager = (WindowManager) getApplicationContext()
-                        .getSystemService(Context.WINDOW_SERVICE);
-                    mLayout = new WindowManager.LayoutParams();
-                    mLayout.type = WindowManager.LayoutParams.TYPE_PHONE;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+                        Toast.makeText(this,R.string.grant_permission_hint,Toast.LENGTH_LONG).show();
+                        Intent permissionIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:"+getPackageName())).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(permissionIntent);
+                    } else {
+                        WindowManager mWindowManager;
+                        WindowManager.LayoutParams mLayout;
+                        mWindowManager = (WindowManager) getApplicationContext()
+                                .getSystemService(Context.WINDOW_SERVICE);
+                        mLayout = new WindowManager.LayoutParams();
+                        mLayout.type = WindowManager.LayoutParams.TYPE_PHONE;
 
-                    // 设置窗体焦点及触摸：
-                    // FLAG_NOT_FOCUSABLE(不能获得按键输入焦点)
-                    mLayout.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+                        mLayout.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
 
-                    // 设置显示的模式
-                    mLayout.format = PixelFormat.RGBA_8888;
+                        mLayout.format = PixelFormat.RGBA_8888;
 
-                    // 设置对齐的方法
-                    mLayout.gravity = Gravity.CENTER;
+                        mLayout.gravity = Gravity.CENTER;
 
-                    // 设置窗体宽度和高度
-                    mLayout.width = WindowManager.LayoutParams.MATCH_PARENT;
-                    mLayout.height = WindowManager.LayoutParams.WRAP_CONTENT;
-                    mWindowManager.addView(new SendWindow(this,mWindowManager),mLayout);
-                    break;
+                        mLayout.width = WindowManager.LayoutParams.MATCH_PARENT;
+                        mLayout.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                        mWindowManager.addView(new SendWindow(this,mWindowManager),mLayout);
+                        break;
+                    }
             }
         }
         return START_NOT_STICKY;

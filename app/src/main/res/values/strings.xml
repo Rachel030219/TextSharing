@@ -3,4 +3,8 @@
 
     <string name="app_name">TextSharing</string>
 
+    <string name="grant_permission_hint">Please enable TextSharing in drawing-over-other-apps list first.</string>
+
+    <string name="input_hint">Input what you want to share…</string>
+
 </resources>

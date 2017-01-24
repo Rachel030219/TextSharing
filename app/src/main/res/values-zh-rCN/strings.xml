@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TextSharing</string>
+
+    <string name="grant_permission_hint">请先授予 TextSharing 悬浮窗权限</string>
+
+    <string name="input_hint">输入你想要分享的…</string>
+</resources>
