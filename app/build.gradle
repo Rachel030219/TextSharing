@@ -8,8 +8,8 @@ android {
         applicationId "net.rachel030219.textsharing"
         minSdkVersion 11
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0 STABLE"
+        versionCode 2
+        versionName "1.1 STABLE"
     }
     buildTypes {
         release {
